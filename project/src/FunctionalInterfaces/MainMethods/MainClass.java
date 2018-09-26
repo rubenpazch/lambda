@@ -13,7 +13,9 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		//ExampleOne();
-		ExampleTwo();
+		//ExampleTwo();
+		ExampleThree();
+		
 	}
 	//Task:get all names of customers whose city of residence begins 
 	//with "Ma", in sorted order
@@ -36,6 +38,17 @@ public class MainClass {
 		System.out.println(Result);
 		
 		System.out.println(Library.LIST_EMPLOYEES.apply(ds.listEmployees()));
+		
+		
+	}
+	public static void ExampleThree() {
+		DataSource dt = new DataSource();
+		List<Customer> customers =dt.listCustomer();
+		LambdaMethods.employeeFromCity(customers,"Fairfield");
+		
+		LambdaMethods.employeeFromCityWithException(customers,"Fairfield");
+		
+		Library.LIST_CUSTOMER_STRING.accept(customers, "Fairfield");
 		
 	}
 }

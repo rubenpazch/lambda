@@ -13,8 +13,9 @@ public class DataSource {
 		Customer cust2 = new Customer("Laurence Lebihans",	"12, rue des Bouchers",	"Marseille","13008");
 		Customer cust3 = new Customer("Andy", "1000 Channing Ave", "Palo Alto", "94301");
 		Customer cust4 = new Customer("Zeke", "212 Wilkshire Blvd", "Chicago", "57532");
-		Customer cust5 = new Customer("Blauer Delikatessen", "Forsterstr. 57","Mannheim",	"68306");
-		List<Customer> list = Arrays.asList(cust1, cust2, cust3, cust4, cust5);		
+		Customer cust5 = new Customer("Blauer Delikatessen", "Forsterstr. 57","Mannheim","68306");
+		Customer cust6 = new Customer("Martin Delikatessen", "Torsterstr. 57","Fairfield","68306");
+		List<Customer> list = Arrays.asList(cust1, cust2, cust3, cust4, cust5, cust6);		
 		return list;
 	}
 	

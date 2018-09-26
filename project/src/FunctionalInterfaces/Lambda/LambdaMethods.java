@@ -1,7 +1,9 @@
 package FunctionalInterfaces.Lambda;
 
 import java.util.List;
+import java.util.function.BiConsumer;
 import java.util.function.BiPredicate;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -9,6 +11,8 @@ import java.util.stream.Collectors;
 import FunctionalInterfaces.Entities.Customer;
 import FunctionalInterfaces.Entities.Employee;
 import FunctionalInterfaces.Exception.PredicateWithException;
+import FunctionalInterfaces.Exception.BiConsumerWithException;
+import FunctionalInterfaces.Exception.ConsumerWithException;
 import FunctionalInterfaces.Exception.FunctionWithException;
 
 
@@ -62,6 +66,37 @@ public class LambdaMethods {
 		return x -> {	
 			try {
 				return f.apply(x);
+			} catch(Exception e) {
+				throw new RuntimeException(e);
+			}
+		};
+	}
+	
+	//show employess that are from fairfield
+	public static void employeeFromCity(List<Customer> employees, String City) {
+		 		employees
+				.stream()
+				.filter(x->x.getCity().equals(City))
+				.map(x->x.getName())
+				.distinct()
+				.collect(Collectors.toList())
+				.forEach(System.out::println);
+	}
+	public static void employeeFromCityWithException(List<Customer> employees, String City) {
+ 		employees
+		.stream()
+		.filter(x->x.getCity().equals(City))
+		.map(x->x.getName())
+		.distinct()
+		.collect(Collectors.toList())
+		.forEach(wrapperConsumer(System.out::println));
+}
+	
+	
+	public static <T> Consumer<T> wrapperConsumer(ConsumerWithException<T> f) {
+		return x -> {	
+			try {
+				f.accept(x);
 			} catch(Exception e) {
 				throw new RuntimeException(e);
 			}

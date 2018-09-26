@@ -1,7 +1,9 @@
 package FunctionalInterfaces.StaticMethods;
 
 import java.util.List;
+import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -32,4 +34,16 @@ public class Library {
 			.collect(Collectors.joining(", "));
 	
 	
+	
+	
+	//show employess that are from fairfield
+	public static final BiConsumer<List<Customer>, String> LIST_CUSTOMER_STRING = (list,s)->list
+			.stream()
+			.filter(x->x.getCity().equals(s))
+			.map(x->x.getName())
+			.distinct()
+			.collect(Collectors.toList())
+			.forEach(System.out::println);
+	
+
 }
