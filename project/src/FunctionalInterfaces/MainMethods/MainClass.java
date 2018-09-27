@@ -1,10 +1,12 @@
 package FunctionalInterfaces.MainMethods;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import FunctionalInterfaces.Data.DataSource;
 import FunctionalInterfaces.Entities.Customer;
+import FunctionalInterfaces.Entities.Employee;
 import FunctionalInterfaces.Lambda.LambdaMethods;
 import FunctionalInterfaces.StaticMethods.Library;
 
@@ -14,7 +16,10 @@ public class MainClass {
 	public static void main(String[] args) {
 		//ExampleOne();
 		//ExampleTwo();
-		ExampleThree();
+		//ExampleThree();
+		//ExampleFour();
+		
+		
 		
 	}
 	//Task:get all names of customers whose city of residence begins 
@@ -51,4 +56,9 @@ public class MainClass {
 		Library.LIST_CUSTOMER_STRING.accept(customers, "Fairfield");
 		
 	}
+	public static void ExampleFour(){
+		//List<Integer> ints = Arrays.asList(3,5,2,3,8);
+		//LambdaMethods.infStream();
+	}
+
 }

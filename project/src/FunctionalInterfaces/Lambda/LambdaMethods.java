@@ -1,5 +1,7 @@
 package FunctionalInterfaces.Lambda;
 
+import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.BiPredicate;
@@ -7,6 +9,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import FunctionalInterfaces.Entities.Customer;
 import FunctionalInterfaces.Entities.Employee;
@@ -102,5 +105,20 @@ public class LambdaMethods {
 			}
 		};
 	}
+	
+	//Represent each int[] in the list as a string so it can be printed,
+	//mapping Arrays.toString to each int[] in the list
+	public static void infStream() {
+		List<int[]> intArrs = Stream.iterate(BigInteger.ONE, n -> n.add(BigInteger.ONE)).limit(20)
+				.map(x -> x.intValue())
+                .map(int[]::new)
+                .collect(Collectors.toList());
+
+		List<String> intArrsStr = intArrs.stream().map(Arrays::toString).collect(Collectors.toList());
+		System.out.println(intArrsStr);	
+	}
+	
+	
+	
 	
 }
