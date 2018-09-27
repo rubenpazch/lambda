@@ -38,7 +38,10 @@ public class Main {
 		 
 		 //largest number of calries in the dishes in the menu. ( find using reduce method)
 		 
-		Optional<Dish> max = menu.stream().reduce((Dish a, Dish b) -> a.getCalories()>b.getCalories()?a:b);	 
+		Optional<Dish> max = menu.stream()
+				.reduce(
+						(Dish a, Dish b) -> 
+						a.getCalories()>b.getCalories()?a:b);	 
 		
 		 
 		 // if(max.isPresent()) {
